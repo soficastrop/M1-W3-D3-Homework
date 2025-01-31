@@ -74,6 +74,58 @@
 
   /* WRITE YOUR HOMEWORK SCRIPTS BELOW HERE */
 
+  function halfNumber(num) {
+    var half = num / 2;
+    document.getElementById("solution").innerHTML = 'Half of ' + num + ' is ' + half;
+}
+
+var halfButton = document.getElementById("half-button");
+halfButton.addEventListener("click", function() {
+    var num = document.getElementById("half-input").value;
+    halfNumber(num);
+});
+
+function calculatePercentage(part, whole) {
+    if (whole == 0) {
+        document.getElementById("solution").innerHTML = "Cannot divide by zero";
+        return;
+    }
+    var percent = (part / whole) * 100;
+    document.getElementById("solution").innerHTML = part + " is " + percent.toFixed(2) + "% of " + whole;
+}
+
+function roundNumber(num) {
+    var rounded = Math.round(num);
+    document.getElementById("solution").innerHTML = "The  onearest whole number of " + num + " is " + rounded;
+}
+
+function calculateCircleArea(radius) {
+    if (radius < 0) {
+        document.getElementById("solution").innerHTML = "Radius cannot be negative";
+        return;
+    }
+    var area = Math.PI * Math.pow(radius, 2);
+    document.getElementById("solution").innerHTML = "The area of a circle with radius " + radius + " is " + area.toFixed(2);
+}
+
+var percentButton = document.getElementById("percent-button");
+percentButton.addEventListener("click", function() {
+    var part = parseFloat(document.getElementById("percent1-input").value);
+    var whole = parseFloat(document.getElementById("percent2-input").value);
+    calculatePercentage(part, whole);
+});
+
+var intButton = document.getElementById("int-button");
+intButton.addEventListener("click", function() {
+    var num = parseFloat(document.getElementById("int-input").value);
+    roundNumber(num);
+});
+
+var areaButton = document.getElementById("area-button");
+areaButton.addEventListener("click", function() {
+    var radius = parseFloat(document.getElementById("area-input").value);
+    calculateCircleArea(radius);
+});
 
 </script>
 </body>
